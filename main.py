@@ -37,11 +37,10 @@ async def start(bot, update):
 
 @bot.on_message(filters.command(["login"]))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(
+    emsg = await bot.ask(m.chat.id,
         "Send **Number or email** in this manner otherwise bot will not respond.\n\nSend like this:-  **mobile no.**"
     )  
-    input1: Message = await bot.listen(editable.chat.id)
-    raw_text1=str(input1.text)
+    email = emsg.text
     
 headers={
 "Host": "api.penpencil.xyz",
@@ -55,7 +54,7 @@ headers={
 "content-type": "application/json; charset=UTF-8",
 "content-length": "178",
 "accept-encoding": "gzip"}
-data='{"username":'+raw_text1+',"countryCode":"+91","organizationId":"5eb393ee95fab7468a79d189"}'
+data='{"username":'+email+',"countryCode":"+91","organizationId":"5eb393ee95fab7468a79d189"}'
 url="https://api.penpencil.xyz/v1/users/get-otp?smsType=0"
 a=requests.post(url, headers=headers, data=data)
 
