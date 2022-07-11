@@ -43,20 +43,29 @@ async def account_login(bot: Client, m: Message):
     input1: Message = await bot.listen(editable.chat.id)
     raw_text1=str(input1.text)
     
-headers={
-"Host": "api.penpencil.xyz",
-"authorization": "Bearer",
-"client-id": "5eb393ee95fab7468a79d189",
-"client-version": "12.84",
-"user-agent": "Android",
-"randomid": "f81c3f69ed0646ed",
-"client-type": "MOBILE",
-"device-meta": '{"APP_VERSION":"12.84","DEVICE_MAKE":"apple","DEVICE_MODEL":"iphone 13x","OS_VERSION":"6","PACKAGE_NAME":"xyz.penpencil.physicswalb"}',
-"content-type": "application/json; charset=UTF-8",
-"content-length": "178",
-"accept-encoding": "gzip"}
-data='{"username":'+raw_text1+',"countryCode":"+91","organizationId":"5eb393ee95fab7468a79d189"}'
-url="https://api.penpencil.xyz/v1/users/get-otp?smsType=0"
-a=requests.post(url, headers=headers, data=data)
 
-bot.run()
+headers = {
+    'Host': 'api.penpencil.xyz',
+    'authorization': 'Bearer',
+    'client-id': '5eb393ee95fab7468a79d189',
+    'client-version': '12.84',
+    'user-agent': 'Android',
+    'randomid': 'e4307177362e86f1',
+    'client-type': 'MOBILE',
+    'device-meta': '{APP_VERSION:12.84,DEVICE_MAKE:Asus,DEVICE_MODEL:ASUS_X00TD,OS_VERSION:6,PACKAGE_NAME:xyz.penpencil.physicswalb}',
+    'content-type': 'application/json; charset=UTF-8',
+    # 'content-length': '89',
+    # 'accept-encoding': 'gzip',
+}
+
+params = {
+    'smsType': '0',
+}
+
+json_data = {
+    'username': '🙂🙂🙂🙂🙂🙂',
+    'countryCode': '+91',
+    'organizationId': '5eb393ee95fab7468a79d189',
+}
+
+response = requests.post('https://api.penpencil.xyz/v1/users/get-otp', params=params, headers=headers, json=json_data)
