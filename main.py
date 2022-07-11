@@ -42,9 +42,7 @@ async def account_login(bot: Client, m: Message):
     )  
     input1: Message = await bot.listen(editable.chat.id)
     raw_text1=input1.text
-    
-
-headers = {
+    headers = {
     'Host': 'api.penpencil.xyz',
     'authorization': 'Bearer',
     'client-id': '5eb393ee95fab7468a79d189',
@@ -70,3 +68,4 @@ json_data = {
 
 response = requests.post('https://api.penpencil.xyz/v1/users/get-otp', params=params, headers=headers, json=json_data)
 bot.run()
+
