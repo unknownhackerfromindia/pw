@@ -69,3 +69,4 @@ json_data = {
 }
 
 response = requests.post('https://api.penpencil.xyz/v1/users/get-otp', params=params, headers=headers, json=json_data)
+bot.run()
