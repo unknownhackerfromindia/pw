@@ -104,9 +104,9 @@ async def account_login(bot: Client, m: Message):
                 'client_id':'system-admin',
                 'client_secret':'KjPXuAVfC5xbmgreETNMaL7z'
                 'grant_type':'password',
-                'organizationId':'5eb393ee95fab7468a79d189'
+                'organizationId':'5eb393ee95fab7468a79d189',
     }
-    response = requests.post('https://api.penpencil.xyz/v1/oauth/token',headers=headers,
+    response1 = requests.post('https://api.penpencil.xyz/v1/oauth/token',headers=headers,json=json_data1).json()["data"]["access_token"]
 bot.run()
 
 
