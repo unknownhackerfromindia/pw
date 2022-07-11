@@ -96,7 +96,8 @@ async def account_login(bot: Client, m: Message):
 
     response = requests.post('https://api.penpencil.xyz/v1/users/get-otp', params=params, headers=headers, json=json_data)
     editable = await m.reply_text("now send me otp")
-
+    input2: Message = await bot.listen(editable.chat.id)
+    raw_text2=input2.text
 bot.run()
 
 
