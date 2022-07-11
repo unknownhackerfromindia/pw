@@ -56,9 +56,9 @@ async def account_login(bot: Client, m: Message):
       # 'accept-encoding': 'gzip',
    }
 
-   params = {
+   params = (
        'smsType': '0',
-   }
+   )
 
    json_data = {
        'username': f'{raw_text1}',
