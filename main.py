@@ -98,28 +98,7 @@ async def account_login(bot: Client, m: Message):
     editable = await m.reply_text("now send me otp")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2=input2.text
-    #data1={"username":'+raw_text1+',"otp":'+raw_text2+',"client_id":"system-admin","client_secret":"KjPXuAVfC5xbmgreETNMaL7z","grant_type":"password","organizationId":"5eb393ee95fab7468a79d189"}
-    #response1 = requests.post('https://api.penpencil.xyz/v1/oauth/token',headers=headers,json=data1).json()
-    
-
-    headers1= {
-        'Host': 'api.penpencil.xyz',
-        'authorization': 'Bearer',
-        'client-id': '5eb393ee95fab7468a79d189',
-        'client-version': '12.84',
-        'user-agent': 'Android',
-        'randomid': 'e4307177362e86f1',
-        'client-type': 'MOBILE',
-        'device-meta': '{APP_VERSION:12.84,DEVICE_MAKE:Asus,DEVICE_MODEL:ASUS_X00TD,OS_VERSION:6,PACKAGE_NAME:xyz.penpencil.physicswalb}',
-        'content-type': 'application/json; charset=UTF-8',
-      # 'content-length': '178',
-      # 'accept-encoding': 'gzip',
-    }
-
-    data = {username:'+raw_text1+',otp:'+raw_text2+',client_id:system-admin,client_secret:KjPXuAVfC5xbmgreETNMaL7z,grant_type:password,organizationId:5eb393ee95fab7468a79d189}
-
-    response3 = requests.post('https://api.penpencil.xyz/v1/oauth/token', headers=headers1, data=data).json()
-    prog = await m.reply_text(response3)
+    data1={"username":'+raw_text1+',"otp":'+raw_text2+',"client_id":"system-admin","client_secret":"KjPXuAVfC5xbmgreETNMaL7z","grant_type":"password","organizationId":"5eb393ee95fab7468a79d189"}
+    response1 = requests.post('https://api.penpencil.xyz/v1/oauth/token',headers=headers,json=data1).json()
+    prog = await m.reply_text(response1)
 bot.run()
-
-
